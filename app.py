@@ -192,6 +192,8 @@ if user_menu == 'Candidates':
     constituency_list = helper.find_constit(state_data)
     select_constit = st.selectbox("Choose Constituency",constituency_list)
     constit_data = state_data[state_data['CONSTITUENCY'] == select_constit]
+    
+    constit_data = constit_data[constit_data.PARTY != 'NOTA']
 
     member_list = helper.find_member(constit_data)
     select_member = st.selectbox("Choose Candidate", member_list)
